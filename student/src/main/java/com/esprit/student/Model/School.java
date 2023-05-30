@@ -1,7 +1,6 @@
-package com.esprit.school.Model;
+package com.esprit.student.Model;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,12 +13,7 @@ import javax.persistence.Id;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Builder
 public class School {
-    @Id
-    @GeneratedValue
-    private Integer id;
     private String name;
     private String email;
 }

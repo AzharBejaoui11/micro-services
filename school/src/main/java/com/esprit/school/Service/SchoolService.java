@@ -1,5 +1,6 @@
 package com.esprit.school.Service;
 
+import com.esprit.school.Model.FullSchoolResponse;
 import com.esprit.school.Model.School;
 
 import java.util.List;
@@ -14,4 +15,7 @@ public interface SchoolService {
     void deleteSchool(Integer id);
 
     School updateSchool(School school , Integer id);
+
+    FullSchoolResponse findSchoolWithStudents(Integer schoolId);
+
 }

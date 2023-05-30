@@ -1,5 +1,6 @@
 package com.esprit.student.controller;
 
+import com.esprit.student.Model.School;
 import com.esprit.student.Model.Student;
 import com.esprit.student.Service.StudentService;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
 
@@ -34,6 +36,7 @@ public class StudentController {
 
     @GetMapping("/school/{school-id}")
     public ResponseEntity<List<Student>> findAllStudents(@PathVariable("school-id") Integer schoolId) {
+
         return ResponseEntity.ok(service.findAllStudentsBySchool(schoolId));
     }
 }

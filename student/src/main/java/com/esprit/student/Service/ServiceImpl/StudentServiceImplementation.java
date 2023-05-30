@@ -47,6 +47,6 @@ public class StudentServiceImplementation implements StudentService {
 
     @Override
     public List<Student> findAllStudentsBySchool(Integer schoolId) {
-        return (List<Student>) studentRepository.findById(schoolId).get();
+        return studentRepository.findAllBySchoolId(schoolId);
     }
 }
