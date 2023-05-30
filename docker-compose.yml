@@ -1,0 +1,29 @@
+version: "3.3"
+
+#Define services
+services:
+
+  #MySql Database for application
+  mysql-db:
+    image: mysql
+    restart: always
+    container_name: mysql-db
+    #Environment variable for password and default database
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_DATABASE: 'crud-application'
+    ports:
+      - 3306:3306 #Forwars the exposed port 3306 on the container to port 3306 on the host machine
+    volumes:
+      - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
+
+  #MySql Web UI
+  php-my-admin:
+    image: phpmyadmin
+    restart: always
+    container_name: php-my-admin
+    ports:
+      - 8081:80 #Forwars the exposed port 80 on the container to port 8081 on the host machine
+    environment:
+      PMA_HOST: mysql-db
+
